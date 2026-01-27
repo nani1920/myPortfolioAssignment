@@ -109,46 +109,49 @@ const About = () => {
                                 { icon: <FaEnvelope />, href: 'mailto:mr.luckymano2005@gmail.com', label: 'Email', value: 'Email Me' },
                                 { icon: <FaPhone />, href: 'tel:+917569964480', label: 'Phone', value: '+91 7569964480' }
                             ].map((social, i) => (
-                                <div key={i} style={{ position: 'relative' }}>
-                                    <motion.a
-                                        href={social.href}
-                                        whileHover="hover"
-                                        initial="rest"
+                                <motion.a
+                                    key={i}
+                                    href={social.href}
+                                    whileHover="hover"
+                                    initial="rest"
+                                    style={{
+                                        width: '44px', height: '44px', borderRadius: '12px',
+                                        background: 'rgba(255,255,255,0.03)',
+                                        border: '1px solid rgba(255,255,255,0.08)',
+                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                        color: 'var(--text-secondary)', fontSize: '1.1rem', textDecoration: 'none',
+                                        transition: 'background 0.2s',
+                                        position: 'relative'
+                                    }}
+                                >
+                                    <motion.div variants={{ hover: { scale: 1.1, color: 'var(--accent-lime)' } }}>
+                                        {social.icon}
+                                    </motion.div>
+
+                                    {/* Tooltip */}
+                                    <motion.span
+                                        variants={{
+                                            rest: { opacity: 0, y: 20, x: '-50%', scale: 0.8, pointerEvents: 'none' },
+                                            hover: { opacity: 1, y: 0, x: '-50%', scale: 1, pointerEvents: 'auto' }
+                                        }}
                                         style={{
-                                            width: '44px', height: '44px', borderRadius: '12px',
-                                            background: 'rgba(255,255,255,0.03)',
-                                            border: '1px solid rgba(255,255,255,0.08)',
-                                            display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                            color: 'var(--text-secondary)', fontSize: '1.1rem', textDecoration: 'none',
-                                            transition: 'background 0.2s',
-                                            position: 'relative'
+                                            position: 'absolute', bottom: '130%', left: '50%',
+                                            padding: '0.4rem 0.8rem',
+                                            background: '#000', border: '1px solid var(--accent-lime)', borderRadius: '6px',
+                                            fontSize: '0.75rem', whiteSpace: 'nowrap',
+                                            zIndex: 100, boxShadow: '0 10px 30px rgba(0,0,0,0.5)', color: '#fff'
                                         }}
                                     >
-                                        <motion.div variants={{ hover: { scale: 1.1, color: 'var(--accent-lime)' } }}>
-                                            {social.icon}
-                                        </motion.div>
-
-                                        {/* Tooltip */}
-                                        <motion.span
-                                            variants={{ rest: { opacity: 0, y: 10, pointerEvents: 'none' }, hover: { opacity: 1, y: 0, pointerEvents: 'auto' } }}
-                                            style={{
-                                                position: 'absolute', bottom: '120%', left: '50%',
-                                                transform: 'translateX(-50%)',
-                                                padding: '0.4rem 0.8rem',
-                                                background: '#000', border: '1px solid var(--accent-lime)', borderRadius: '6px',
-                                                fontSize: '0.75rem', whiteSpace: 'nowrap',
-                                                zIndex: 10, boxShadow: '0 4px 10px rgba(0,0,0,0.3)'
-                                            }}
-                                        >
-                                            {social.value}
-                                            <div style={{
-                                                position: 'absolute', top: '100%', left: '50%', transform: 'translateX(-50%)',
-                                                borderWidth: '6px', borderStyle: 'solid',
-                                                borderColor: 'var(--accent-lime) transparent transparent transparent'
-                                            }} />
-                                        </motion.span>
-                                    </motion.a>
-                                </div>
+                                        {social.value}
+                                        {/* Premium Arrow */}
+                                        <div style={{
+                                            position: 'absolute', top: '100%', left: '50%',
+                                            transform: 'translate(-50%, -50%) rotate(45deg)',
+                                            width: '10px', height: '10px',
+                                            background: '#000', borderRight: '1px solid var(--accent-lime)', borderBottom: '1px solid var(--accent-lime)'
+                                        }} />
+                                    </motion.span>
+                                </motion.a>
                             ))}
                         </div>
 

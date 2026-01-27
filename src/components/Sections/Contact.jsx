@@ -132,52 +132,56 @@ const Contact = () => {
                         { icon: <FaGithub />, href: 'https://github.com/nani1920', value: 'github.com/nani1920' },
                         { icon: <FaLinkedin />, href: 'https://linkedin.com/in/m-manoj', value: 'linkedin.com/in/m-manoj' }
                     ].map((social, i) => (
-                        <div key={i} style={{ position: 'relative' }}>
-                            <motion.a
-                                href={social.href}
-                                target={social.icon.type === FaPhone || social.icon.type === FaEnvelope ? "_self" : "_blank"}
-                                rel="noopener noreferrer"
-                                whileHover="hover"
-                                initial="rest"
-                                style={{
-                                    color: 'var(--text-secondary)',
-                                    display: 'block',
-                                    position: 'relative',
-                                    zIndex: 1
+                        <motion.a
+                            key={i}
+                            href={social.href}
+                            target={social.href.startsWith('http') ? "_blank" : "_self"}
+                            rel="noopener noreferrer"
+                            whileHover="hover"
+                            initial="rest"
+                            style={{
+                                color: 'var(--text-secondary)',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                position: 'relative',
+                                width: '2rem',
+                                height: '2rem',
+                                zIndex: 1
+                            }}
+                        >
+                            <motion.div
+                                variants={{
+                                    rest: { scale: 1, color: 'var(--text-secondary)' },
+                                    hover: { scale: 1.2, color: 'var(--accent-lime)' }
                                 }}
                             >
-                                <motion.div
-                                    variants={{
-                                        rest: { scale: 1, color: 'var(--text-secondary)' },
-                                        hover: { scale: 1.2, color: 'var(--accent-lime)' }
-                                    }}
-                                >
-                                    {social.icon}
-                                </motion.div>
+                                {social.icon}
+                            </motion.div>
 
-                                <motion.span
-                                    variants={{
-                                        rest: { opacity: 0, y: 10, pointerEvents: 'none' },
-                                        hover: { opacity: 1, y: 0, pointerEvents: 'auto' }
-                                    }}
-                                    transition={{ duration: 0.2 }}
-                                    style={{
-                                        position: 'absolute', bottom: '120%', left: '50%', transform: 'translateX(-50%)',
-                                        padding: '0.4rem 0.8rem',
-                                        background: '#000', border: '1px solid var(--accent-lime)', borderRadius: '6px',
-                                        fontSize: '0.75rem', whiteSpace: 'nowrap',
-                                        boxShadow: '0 4px 10px rgba(0,0,0,0.3)', zIndex: 10
-                                    }}
-                                >
-                                    {social.value}
-                                    <div style={{
-                                        position: 'absolute', top: '100%', left: '50%', transform: 'translateX(-50%)',
-                                        borderWidth: '6px', borderStyle: 'solid',
-                                        borderColor: 'var(--accent-lime) transparent transparent transparent'
-                                    }} />
-                                </motion.span>
-                            </motion.a>
-                        </div>
+                            <motion.span
+                                variants={{
+                                    rest: { opacity: 0, y: 20, x: '-50%', scale: 0.8, pointerEvents: 'none' },
+                                    hover: { opacity: 1, y: 0, x: '-50%', scale: 1, pointerEvents: 'auto' }
+                                }}
+                                transition={{ duration: 0.2 }}
+                                style={{
+                                    position: 'absolute', bottom: '150%', left: '50%',
+                                    padding: '0.5rem 1rem',
+                                    background: '#000', border: '1px solid var(--accent-lime)', borderRadius: '8px',
+                                    color: '#fff', fontSize: '0.8rem', whiteSpace: 'nowrap',
+                                    zIndex: 100, boxShadow: '0 10px 30px rgba(0,0,0,0.5)'
+                                }}
+                            >
+                                {social.value}
+                                <div style={{
+                                    position: 'absolute', top: '100%', left: '50%',
+                                    transform: 'translate(-50%, -50%) rotate(45deg)',
+                                    width: '10px', height: '10px',
+                                    background: '#000', borderRight: '1px solid var(--accent-lime)', borderBottom: '1px solid var(--accent-lime)'
+                                }} />
+                            </motion.span>
+                        </motion.a>
                     ))}
                 </motion.div>
             </div>
