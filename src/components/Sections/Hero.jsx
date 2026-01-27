@@ -290,7 +290,7 @@ const Hero = ({ isLoading, isDark }) => {
                         initial="hidden"
                         animate={animationReady ? "visible" : "hidden"}
                         variants={textReveal}
-                        style={{ marginTop: '3rem', display: 'flex', gap: '1.5rem', justifyContent: 'center' }}
+                        style={{ marginTop: '3rem' }}
                     >
                         <motion.a
                             href="#about"
@@ -310,28 +310,6 @@ const Hero = ({ isLoading, isDark }) => {
                             }}
                         >
                             Enter
-                        </motion.a>
-
-                        <motion.a
-                            href="/ManojResume.pdf"
-                            download
-                            whileHover={{ scale: 1.05, background: 'var(--accent-lime)', color: '#000', border: '1px solid var(--accent-lime)' }}
-                            whileTap={{ scale: 0.95 }}
-                            style={{
-                                display: 'inline-block',
-                                padding: '1rem 3rem',
-                                background: 'transparent',
-                                border: '1px solid var(--accent-lime)',
-                                color: 'var(--accent-lime)',
-                                borderRadius: '50px',
-                                textDecoration: 'none',
-                                fontSize: '0.95rem',
-                                letterSpacing: '2px',
-                                textTransform: 'uppercase',
-                                fontWeight: '600'
-                            }}
-                        >
-                            Resume
                         </motion.a>
                     </motion.div>
                 </div>

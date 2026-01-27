@@ -169,7 +169,8 @@ const Header = ({ isDark, toggleTheme }) => {
                         left: 0,
                         width: '100%',
                         height: 'calc(100vh - 70px)',
-                        background: 'rgba(0,0,0,0.98)',
+                        backgroundColor: isDark ? 'var(--bg-primary)' : '#FAFAFA',
+                        color: 'var(--text-primary)',
                         zIndex: 999,
                         display: 'flex',
                         flexDirection: 'column',
@@ -187,7 +188,7 @@ const Header = ({ isDark, toggleTheme }) => {
                             transition={{ delay: i * 0.1 }}
                             onClick={() => setIsMobileOpen(false)}
                             style={{
-                                color: 'var(--text-primary)',
+                                color: isDark ? 'var(--text-primary)' : '#121212',
                                 textDecoration: 'none',
                                 fontSize: '1.5rem',
                                 fontWeight: '600'
@@ -205,8 +206,9 @@ const Header = ({ isDark, toggleTheme }) => {
                         whileTap={{ scale: 0.95 }}
                         style={{
                             padding: '0.5rem 1.5rem',
-                            background: 'var(--accent-lime)',
-                            color: '#000',
+                            background: isDark ? 'var(--btn-resume-bg)' : '#000000',
+                            border: `1px solid ${isDark ? 'var(--btn-resume-border)' : '#000000'}`,
+                            color: isDark ? 'var(--btn-resume-color)' : 'var(--accent-lime)',
                             borderRadius: '50px',
                             textDecoration: 'none',
                             fontWeight: '600',
@@ -223,8 +225,8 @@ const Header = ({ isDark, toggleTheme }) => {
                         onClick={toggleTheme}
                         style={{
                             marginTop: '1rem',
-                            background: 'rgba(209, 255, 0, 0.1)',
-                            border: '1px solid rgba(209, 255, 0, 0.3)',
+                            background: isDark ? 'rgba(209, 255, 0, 0.1)' : 'rgba(0, 0, 0, 0.05)',
+                            border: `1px solid ${isDark ? 'rgba(209, 255, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)'}`,
                             borderRadius: '50%',
                             width: '50px',
                             height: '50px',
