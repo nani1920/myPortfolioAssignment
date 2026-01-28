@@ -50,7 +50,7 @@ This portfolio is a premium digital showcase designed for speed, aesthetics, and
 │   │   ├── Layout/      # Global components (Header, Footer)
 │   │   ├── Sections/    # Page sections (Hero, About, Projects, Gallery, Contact)
 │   │   └── UI/          # Reusable UI widgets
-│   ├── assets/          # Static assets (Images, Resume)
+│   ├── assets/          # Static assets (Images)
 │   ├── styles/          # Design system & Global CSS
 │   └── App.jsx          # Application entry point
 ├── public/              # Static files
